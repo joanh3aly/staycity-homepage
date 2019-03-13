@@ -1,0 +1,343 @@
+<!DOCTYPE html> 
+<html lang="en">
+	<head> 
+    <meta charset="utf-8">
+    <title>Staycity</title> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.js" async></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.css">
+    <script src="js/staycity-1.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">      
+	</head> 
+	<body>
+    <header>
+      <nav class="flex-container navbar">
+        <div class="dropdown">
+          <button class="dropbtn" onclick="apartmentsDropdown()">Apartments
+            <img src="images/caret-down.png" class="caret-down" width="10" alt="caret down">
+          </button>
+          <div class="dropdown-content" id="myDropdown">
+          </div>
+        </div> 
+        <div><a href="#">Leisure Stays</a></div>
+        <div><a href="#">Staying on Business</a></div>
+        <div><a href="#">Contact</a></div>
+        <div id="hamburger">
+          <a href="#"><img src="images/hamenu.png" width="30" alt="hamburger"></a>
+        </div>   
+        <div class="dropdown">    
+          <button class="dropbtn" onclick="flagsDropdown()">
+            <img src="http://staging.staycity.com/staycity2017/wp-content/uploads/flags/php6irkUx" alt="en" width="18" height="12">
+            <img src="images/caret-down.png" class="caret-down" width="10" alt="caret down">
+          </button>
+          <div class="dropdown-content flagDropdown"> <!-- Previous version using getElementById id="flagDropdown"-->       
+            <ul id="flagList" class="sc-subnav-items" id="sc-languages">
+              <li>
+                <a class="m-city" href="https://www.staycity.com/fr-fr/">
+                  <img src="https://www.staycity.com/staycity2017/wp-content/uploads/flags/phpiE261s" height="12" alt="fr-fr" width="18" />  Français
+                </a>
+              </li>
+              <li>
+                <a class="m-city" href="https://www.staycity.com/de-de/">
+                  <img src="https://www.staycity.com/staycity2017/wp-content/uploads/flags/php225T9n" height="12" alt="de-de" width="18" />  Deutsch
+                </a>
+              </li>
+              <li>
+                <a class="m-city" href="https://www.staycity.com/it-it/">
+                  <img src="https://www.staycity.com/staycity2017/wp-content/uploads/flags/phpvwLHhj" height="12" alt="it-it" width="18" />  Italiano
+                </a>
+              </li>
+              <li>
+                <a class="m-city" href="https://www.staycity.com/es-es/">
+                  <img src="https://www.staycity.com/staycity2017/wp-content/uploads/flags/phpVPKvpe" height="12" alt="es-es" width="18" />  Español
+                </a>
+              </li>
+            </ul>					
+          </div>
+        </div>
+      </nav>
+    </header> 
+
+    <section id="front-page">
+      <div class="flex-container-mainpage">
+        <article id="about">
+          <img src="images/staycity-logo-white.png" alt="white logo">
+          <p id="about-1"><b>Luxury apartments, in the heart of paradise.</b></p>  
+          <p id="about-2"><b>Staycity Aparthotels</b> are proud to announce accommodation in your next destination.</p>
+          <p id="about-3"><b>Stay</b> in the Maldives. <b>Stay</b> at Moofusi. <b>Stay</b> your way.</p>
+        </article>
+        <article id="enquiry-form">
+          <h4>Choose your dates, check your rates</h4>
+          <form>
+            <span>Location:</span>
+            <select id="ddl" onchange="configureDropDownLists(this,document.getElementById('ddl2'))">
+              <optgroup>
+                <option style="font-size:15px" value="Mauritius">Mauritius</option>
+                <option value="Maldives" selected>Maldives</option>
+              </optgroup>
+            </select>
+            <span>Apartments:</span>    
+            <select id="ddl2">
+              <optgroup>
+                <option id="moofushi" value="Moofushi Island">Moofushi Island</option>
+                <option id="paradise" value="Paradise Cove">Paradise Cove</option>
+              </optgroup>
+            </select>
+            <br>
+            <article class="checking">
+              <div id="check-in">
+                Check-in:<br>
+                <input class="check-in-out" type="text" name="checkin" value="14 May 2018">
+                <br>
+              </div>
+              <div id="check-out">
+                Check-out:<br>
+                <input class="check-in-out" type="text" name="checkout" value="24 May 2018">
+              </div>
+            </article>
+            <br>
+            <article>
+              <button class="reserve">Get rates & reserve<img src="images/double-right.png" width="10" alt="double right"></button><br>
+              <span id="reset"><a href=""><small>Reset search options</small></a></span> <br>
+            </article>  
+            <article>
+              <span>Add promotional code?</span>
+              <input type="checkbox" name="promo" value="promo"><br>
+            </article>
+          </form>
+        </article>  
+        <article id="banner">
+          <div>Moofooshi Apartments by <b>Staycity Aparthotels</b></div>
+        </article> 
+      </div> 
+    </section>
+    
+    <main>
+      <section id="info">
+        <article>
+          <span class="bold"><b>Address:</b></span><br>
+          <span>South Atoll, Alifu Atoll 00200, Moofushi Island</span><br>
+          <span class="bold"><b>GPS:</b></span><br>
+          <span>Lat: 3.881389, Lng: 72.730278</span><br>
+          <button>Show on <b>map</b></button>
+        </article>
+        <article>
+            <span class="bold"><b>Reservations:</b></span><br>
+            <span>+353 1 699 2127</span><br>  
+            <span class="bold"><b>Enquiries:</b></span><br>
+            <span>+44 208 694 0793</span><br>  
+            <span class="bold"><b>Email:</b></span>
+            <span>moofushi.info@staycity.com</span>  
+          </article>
+      </section>
+      <section class="photo-icon">PHOTOS (40)</section>
+      <section class="gallery grid-container-gallery">
+        <a href="https://feimosi.github.io/baguetteBox.js/img/1-1.jpg" data-caption="Golden Gate Bridge"><img src="https://feimosi.github.io/baguetteBox.js/img/thumbs/1-1.jpg" alt="golden gate"></a>
+        <a href="https://feimosi.github.io/baguetteBox.js/img/1-2.jpg" title="Midnight City"><img src="https://feimosi.github.io/baguetteBox.js/img/thumbs/1-2.jpg" alt="Midnight City"></a>
+        <a href="https://feimosi.github.io/baguetteBox.js/img/1-3.jpg"><img src="https://feimosi.github.io/baguetteBox.js/img/thumbs/1-3.jpg" alt="3"></a>
+        <a href="https://feimosi.github.io/baguetteBox.js/img/1-4.jpg"><img src="https://feimosi.github.io/baguetteBox.js/img/thumbs/1-4.jpg" alt="4"></a>
+        <a href="https://feimosi.github.io/baguetteBox.js/img/1-5.jpg"><img src="https://feimosi.github.io/baguetteBox.js/img/thumbs/1-5.jpg" alt="5"></a>
+        <a href="https://feimosi.github.io/baguetteBox.js/img/1-6.jpg"><img src="https://feimosi.github.io/baguetteBox.js/img/thumbs/1-6.jpg" alt="6"></a>
+      </section>
+
+      <section class="grid-container-room-types">
+        <article class="room-type-heading">
+          <span><b>Room</b> Types and rates</span>
+        </article>  
+        <article class="room-type-1 room-type">
+          <article class="left-1 yellowbg">
+            <span>Staycity beach villa</span>
+            <p> Sea facing individual bungalows with terrace King bed, private decking with sun loungers and a footpath leading to the beach. Your villa also has a 48 "SmartTV, has mini mac, and fridge with selections of delicious wines to enjoy, which will be picked up daily by our attentive staff.</p>
+            <p><b>Your selected dates:</b> July 11th 2018 to July 18th 2018</p>
+            <button class="book" onclick="book(this)">Book now</button>
+            <div>Total cost: <span>&euro;7,665</span> All inclusive rate</div>
+          </article>
+          <article class="right-1 yellowbg">
+            <img src="https://feimosi.github.io/baguetteBox.js/img/1-1.jpg" width="100" alt="beach villa" >
+            <a href="">View all photos</a>
+          </article>
+        </article>
+        <article class="room-type-2 room-type">
+          <article class="left-1 yellowbg">
+            <span>Water villa</span>
+            <p> Sea facing individual bungalows with terrace King bed, private decking with sun loungers and a footpath leading to the beach. Your villa also has a 48 "SmartTV, has mini mac, and fridge with selections of delicious wines to enjoy, which will be picked up daily by our attentive staff.</p>
+            <p><b>Your selected dates:</b> July 11th 2018 to July 18th 2018</p>
+            <button class="book" onclick="book(this)">Book now</button>
+            <div>Total cost: <span>&euro;9,895</span> All inclusive rate</div>
+          </article>
+          <article class="right-1 yellowbg">
+            <img src="https://feimosi.github.io/baguetteBox.js/img/1-1.jpg" width="100" alt="water villa" >
+            <a href="">View all photos</a>
+          </article>
+        </article>
+        <article class="room-type-3 room-type">
+          <article class="left-1 yellowbg">
+            <span>Luxury water villa</span>
+            <p> Sea facing individual bungalows with terrace King bed, private decking with sun loungers and a footpath leading to the beach. Your villa also has a 48 "SmartTV, has mini mac, and fridge with selections of delicious wines to enjoy, which will be picked up daily by our attentive staff.</p>
+            <p><b>Your selected dates:</b> July 11th 2018 to July 18th 2018</p>
+            <button class="book" onclick="book(this)">Book now</button>
+            <div>Total cost: <span>&euro;12,665</span> All inclusive rate</div>
+          </article>
+          <article class="right-1 yellowbg">
+            <img src="https://feimosi.github.io/baguetteBox.js/img/1-1.jpg" width="100" alt="luxury villa" >
+            <a href="">View all photos</a>
+          </article>
+        </article>
+      </section>       
+
+      <section class="grid-container-features">
+        <article class="features-item1">
+          <b class="bold">Check-in: 3pm - Check-out: 11am</b>
+          <ul>
+            <li>Free spa treatment or deep sea dive</li>
+            <li>Complimentary cocktail on arrival</li>
+            <li>No booking deposit required</li>
+            <li>Free cancellation option when booking (subject to <u>Terms & Conditions</u>)</li>
+          </ul> 
+          <span>Choose your bed options when booking</span>
+        </article>
+        <br>
+        <article class="features-item2">
+          <b class="bold">Features for all guests</b><br><br> 
+          <div class="detail-box">Free Wi-Fi</div>
+          <div class="detail-box">TV + (DVD player on request)</div>
+          <div class="detail-box">Microwave</div>
+          <div class="detail-box">Hairdryer</div>
+          <div class="detail-box">Fitness facilities</div>
+          <div class="detail-box">Baby cot on request</div>
+          <div class="detail-box">24 hour reception</div>
+          <div class="detail-box">Weekly cleaning service</div>
+          <div class="detail-box">Ironing facilities</div>
+          <div class="detail-box">Full air conditioning</div>
+          <div class="detail-box">Lift to all floors</div>
+          <div class="detail-box">Child's high chair on request</div>   
+        </article>
+        <article class="features-item3">
+          <b class="bold">Optional Extras</b>
+          <ul>
+            <li>Luggage storage</li>
+            <li>Laundry facilities</li>
+            <li>Off-site car parking</li>
+          </ul>
+          <small>Optional extras may incur a cost when booking</small>
+        </article>
+      </section>
+    </main>
+  
+    <section class="grid-container-details">
+        <article class="details-item1">
+          <span>What's <b class="bold">near your accommodation?</b></span>
+          <p>Set on it's own secluded island, Staycity Moofushi is a perfect combination of luxury and simplicity 
+            where everything is taken care of with our all-inclusive package - from premium drinks, exquisite cuisine to 
+            luxurious accommodation. And if you are not exploring one of the best diving sites in the world around the 
+            South Ari Atoll; try our bio marine spa treatments for a more beautiful you.<br>
+            The colorful aquatic world is also a must while staying at <b class="bold">Staycity Moofushi</b>: From snorkelling exploration, 
+            sunset cruise with a traditional dhoni to dolphin search and big game fishing Maldivian style; <b class="bold">Staycity Moofushi</b> 
+            and its surrounding is a jewel!</p>
+        </article>
+        <article class="details-item2">
+          <ul>
+            <li><b class="bold">Cutty Sark</b> - 0.9 miles</li>
+            <li><b class="bold">Greenwich Pier</b> - 1 mile</li>
+            <li><b class="bold">O2 Arena</b> - 2.8 miles</li>
+            <li><b class="bold">London Bridge</b> - 4.1 miles</li>
+            <li><b class="bold">Excel Exhibition and Convention Centre</b> - 4.4 miles</li>
+          </ul>
+        </article>
+        <article class="details-item3">
+          <ul>
+            <li><b class="bold">Maritime Museum</b> - 0.9 miles</li>
+            <li><b class="bold">Royal Observatory</b> - 1.2 miles</li>
+            <li><b class="bold">Canary Wharf</b> - 3.1 miles</li>
+            <li><b class="bold">Bank End</b> - 4.2 miles</li>
+            <li><b class="bold">London City Airport</b> - 5.4 miles</li>
+          </ul>
+        </article>
+      </section>
+    <section id="signup">
+      <div class="bold signup-heading signup-item1"><span class="white">Sign up</span> for our best deals</div>
+      <div class="flex-container-signup">
+      <form action="/action_page.php">
+        <input class="signup-item2" type="text" name="firstname" value="First Name">
+        <input class="signup-item3" type="text" name="lastname" value="Last Name">
+        <input class="signup-item4" type="email" name="email" value="Email Address">
+        <button class="signup-item5 sign-up" type="submit" value="Submit">Sign up</button>
+      </form> 
+      </div>
+    </section>  
+  
+    <footer>
+      <div class="grid-container">
+        <div class="item1 footer-list">
+          <h4>Stay Central</h4>
+          <div class="box box1">Dublin</div>
+          <div class="box box1">London</div>
+          <div class="box box1">Edinburgh</div>
+          <div class="box box1">Liverpool</div>
+          <div class="box box1">Manchester</div>
+          <div class="box box1">Birmingham</div>
+          <div class="box box1">Paris</div>
+          <div class="box box1">Lyon</div>
+          <div class="box box1">Marseille</div>
+          <div class="box box1">York</div>
+        </div>
+        <div class="item2 footer-list">
+          <h4>Stay with us</h4>
+          <ul>
+            <li><a href="#">The Staycity Experience</a></li>
+            <li><a href="#">Staying on Business</a></li>
+            <li><a href="#">Leisure Stays</a></li>
+            <li><a href="#">Family Stays</a></li>
+            <li><a href="#">Staycity Travel Tips</a></li>
+          </ul>
+        </div>
+        <div class="item3 footer-list">
+          <ul class="social-icons">
+            <li class="tab">
+              <a href="#">
+                  <img src="images/icon-fb.png" width="30" alt="social icons">
+              </a>
+            </li>
+            <li class="tab">
+              <a href="#">
+                  <img src="images/icon-tw.png" width="30" alt="social icons">
+              </a>
+            </li>
+            <li class="tab">
+              <a href="#">
+                  <img src="images/icon-insta.png" width="30" alt="social icons">
+              </a>
+            </li>
+            <li class="tab">
+              <a href="#">
+                <img src="images/icon2-li.png" width="30"  alt="social icons">
+              </a>
+            </li>
+          </ul> 
+          <div id="secure">
+            <img src="images/lock.png" class="secure-lock" width="15" alt="lock">
+            <h3>Verified Secure</h3>
+            <img src="images/icons.png" width="200" alt="ccard icons">
+            <p>Staycity is a member of The Association of Serviced Apartment Providers</p>
+          </div> 
+        </div> 
+        <div class="item4 footer-list">
+          <h4>About Staycity</h4>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Press &amp; Media</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Development</a></li>
+          </ul>
+        </div>
+        <div id="item6">
+          &copy;2018 Staycity Ltd. All rights reserved. Staycity&reg; is a registered trademark of Staycity Ltd.
+        </div>   
+      </div>  
+    </footer>
+    <script>
+      baguetteBox.run('.gallery', {
+      });
+    </script>
+  </body>  
+</html> 
